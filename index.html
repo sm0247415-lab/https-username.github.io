@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Monirul Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: black;
+      color: lime;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: #000;
+      padding: 20px;
+      font-size: 24px;
+      border-bottom: 1px solid lime;
+      box-shadow: 0 0 10px lime;
+    }
+
+    .creator {
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    .container {
+      margin-top: 50px;
+    }
+
+    h2 {
+      color: cyan;
+      animation: glow 1.5s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 5px cyan; }
+      to { text-shadow: 0 0 20px cyan; }
+    }
+
+    input, textarea {
+      width: 80%;
+      max-width: 400px;
+      padding: 12px;
+      margin: 10px;
+      border: 1px solid lime;
+      border-radius: 10px;
+      background: black;
+      color: lime;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 20px;
+      background: lime;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: cyan;
+      transform: scale(1.1);
+    }
+
+    #success {
+      display: none;
+      margin-top: 20px;
+      color: cyan;
+      font-size: 18px;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 12px;
+      color: #888;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <span id="typing"></span>
+  <div class="creator">Create by Monirul</div>
+</header>
+
+<div class="container">
+  <h2>💬 Send Feedback</h2>
+
+  <form id="form" action="https://formspree.io/f/xvzvlrnb" method="POST">
+    <input type="text" name="name" placeholder="Apna naam" required><br>
+    <textarea name="message" placeholder="Apna feedback" required></textarea><br>
+    <button type="submit">Send</button>
+  </form>
+
+  <div id="success">✅ Thanks for your feedback bhai!</div>
+</div>
+
+<footer>
+  © 2026 Monirul
+</footer>
+
+<script>
+  // typing effect
+  let text = "MONIRUL WEBSITE";
+  let i = 0;
+  function typeEffect() {
+    if (i < text.length) {
+      document.getElementById("typing").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeEffect, 100);
+    }
+  }
+  typeEffect();
+
+  // form success message
+  const form = document.getElementById("form");
+  form.addEventListener("submit", function() {
+    setTimeout(() => {
+      document.getElementById("success").style.display = "block";
+    }, 1000);
+  });
+</script>
+
+</body>
+</html>
